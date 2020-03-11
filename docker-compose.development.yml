@@ -1,0 +1,36 @@
+version: '3.7'
+
+services:
+
+  php-web:
+    build:
+      context: .
+      dockerfile: ./docker/php-web/Dockerfile
+#    environment:
+#      - MONGO_HOST=mongo
+#      - MONGO_PORT=27017
+#      - MONGO_USERNAME=root
+#      - MONGO_PASSWORD=plsNoCrash
+    volumes:
+      - ./:/app:rw
+
+  nginx:
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+    ports:
+      - "6680:80"
+    volumes:
+      - ./public:/app/public:ro
+
+  tideways-daemon:
+    build:
+      context: .
+      dockerfile: ./docker/tideways-daemon/Dockerfile
+
+  mongo:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: plsNoCrash
+    command: --bind_ip 0.0.0.0 --wiredTigerCacheSizeGB 1.0

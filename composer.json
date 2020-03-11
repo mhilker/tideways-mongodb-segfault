@@ -1,0 +1,15 @@
+{
+    "name": "gramini/segfault-php",
+    "license": "proprietary",
+    "description": "Kills PHP with SIGSEGV",
+    "type": "project",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^7.4",
+        "mongodb/mongodb": "^1.6"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-master"
+    }
+}
