@@ -26,5 +26,5 @@ try {
 
     return $client;
 } catch (Exception $exception) {
-    echo 'Could not connect to mongodb: [\'exception\' => $exception]', PHP_EOL;
+    echo "Could not connect to mongodb: [\'exception\' => $exception]", PHP_EOL;
 }
